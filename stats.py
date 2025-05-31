@@ -1,5 +1,4 @@
 def get_book_word_count(file_path):
-    #print("in get_book_word_count")
     with open(file_path) as f:
         file_contents = f.read()
     word_count = len(file_contents.split())
@@ -10,16 +9,13 @@ def get_num_chars(file_path):
         file_contents = f.read().lower()
     char_nums = dict()
     for c in file_contents:
-        #print(f"I'm here and my value is {c}")
         char_nums[c] = char_nums.setdefault(c, 0) + 1
-    #print(char_nums)
     return char_nums
 
 def sort_char_nums(num_chars):
     result = list()
     for d in num_chars:
         if d.isalpha():
-            #print(f"{d}: {num_chars[d]}")
             char_dict = {"char": d, "num": num_chars[d]}
             result.append(char_dict)
     result.sort(key=lambda d: d["num"], reverse=True)
